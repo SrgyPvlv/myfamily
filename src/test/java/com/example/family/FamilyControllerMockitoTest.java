@@ -1,5 +1,7 @@
 package com.example.family;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -38,6 +40,7 @@ public class FamilyControllerMockitoTest {
 		
 		verify(familyService).getFamilyById(1l);
 		
-		Assertions.assertEquals(1l,f.getId().longValue());
+		//Assertions.assertEquals(1l,f.getId().longValue()); Это первый вариант сравнения.
+		assertThat(f.getId(),is(1l)); //это второй вариант, с использованием Hamcrest
 	}
 }
