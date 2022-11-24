@@ -10,6 +10,6 @@ import com.example.family.model.FamilyEntity;
 @Repository
 public interface FamilyRepository extends JpaRepository<FamilyEntity, Long> {
 	
-	List<FamilyEntity> findAllByFathernameContaining(String fathername);
+	List<FamilyEntity> findAllBySurnameContainingIgnoreCase(String surname);
 
 }

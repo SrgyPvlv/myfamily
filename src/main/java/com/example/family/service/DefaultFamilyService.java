@@ -77,4 +77,22 @@ public class DefaultFamilyService implements FamilyService {
 		
 	}
 
+	@Override
+	public List<Family> getFamilyBySurnameContaining(String surname) {
+		Iterable<FamilyEntity> iterable=familyRepository
+				.findAllBySurnameContainingIgnoreCase(surname);
+		
+		ArrayList<Family> families=new ArrayList<>();
+		
+		for(FamilyEntity familyEntity: iterable) {
+			families.add(new Family(familyEntity.getId(),familyEntity.getSurname(),
+			familyEntity.getName(),
+			familyEntity.getFathername(),
+			familyEntity.getBirthday()
+			));
+		};
+		
+		return families;
+	}
+
 }

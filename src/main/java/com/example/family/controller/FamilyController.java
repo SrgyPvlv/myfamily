@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.family.model.Family;
@@ -36,12 +37,25 @@ public class FamilyController {
 		}catch(Exception e) {return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
 	}
 	
-	@GetMapping("/family")
+	/*@GetMapping("/family")
 	public ResponseEntity<List<Family>> getAllFamily(){
 		
 		try {
 		return new ResponseEntity<>(familyService.getAllFamily(),HttpStatus.OK);
 		} catch(Exception e) {return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
+	}*/
+	
+	@GetMapping("/family")
+	public ResponseEntity<List<Family>> getFamilyBySurnameContaining(@RequestParam(required=false) String surname){
+		
+			if(surname != null)
+				{try {
+					return new ResponseEntity<>(familyService.getFamilyBySurnameContaining(surname),HttpStatus.OK);
+					} catch(Exception e) {return new ResponseEntity<>(HttpStatus.NOT_FOUND);}}
+			
+			else {try {
+				return new ResponseEntity<>(familyService.getAllFamily(),HttpStatus.OK);
+				} catch(Exception e) {return new ResponseEntity<>(HttpStatus.NOT_FOUND);}}
 	}
 	
 	@PostMapping("/family")
