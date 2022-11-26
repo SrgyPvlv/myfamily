@@ -46,11 +46,11 @@ public class FamilyController {
 	}*/
 	
 	@GetMapping("/family")
-	public ResponseEntity<List<Family>> getFamilyBySurnameContaining(@RequestParam(required=false) String surname){
+	public ResponseEntity<List<Family>> findAllBySurnameOrName(@RequestParam(required=false) String surnameorname){
 		
-			if(surname != null)
+			if(surnameorname != null)
 				{try {
-					return new ResponseEntity<>(familyService.getFamilyBySurnameContaining(surname),HttpStatus.OK);
+					return new ResponseEntity<>(familyService.findAllBySurNameOrName(surnameorname),HttpStatus.OK);
 					} catch(Exception e) {return new ResponseEntity<>(HttpStatus.NOT_FOUND);}}
 			
 			else {try {

@@ -10,5 +10,5 @@ List<Family> getAllFamily();
 void addFamily(Family family);
 void editFamily(Long id, Family family);
 void deleteFamilyById(Long Id);
-List<Family> getFamilyBySurnameContaining(String surname);
+List<Family> findAllBySurNameOrName(String surnameOrName);
 }

@@ -78,9 +78,10 @@ public class DefaultFamilyService implements FamilyService {
 	}
 
 	@Override
-	public List<Family> getFamilyBySurnameContaining(String surname) {
+	public List<Family> findAllBySurNameOrName(String surnameOrName) {
+		String surnameOrNameLower=surnameOrName.toLowerCase();
 		Iterable<FamilyEntity> iterable=familyRepository
-				.findAllBySurnameContainingIgnoreCase(surname);
+				.findAllBySurNameOrName(surnameOrNameLower);
 		
 		ArrayList<Family> families=new ArrayList<>();
 		
