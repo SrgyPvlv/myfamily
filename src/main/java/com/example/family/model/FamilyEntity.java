@@ -1,7 +1,6 @@
 package com.example.family.model;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,5 +31,5 @@ public class FamilyEntity {
 
 	String fathername; //Column и (name="fathername") можно не указывать, если название совпадает с названием поля
 
-	Date birthday;
+	LocalDate birthday;
 }

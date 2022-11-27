@@ -1,7 +1,6 @@
 package com.example.family.model;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,5 +13,5 @@ public class Family {
 	String surname;
 	String name;
 	String fathername;
-	Date birthday;
+	LocalDate birthday;
 }

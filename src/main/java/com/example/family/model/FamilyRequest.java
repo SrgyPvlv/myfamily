@@ -1,7 +1,6 @@
 package com.example.family.model;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 import lombok.Data;
 
 @Data
@@ -10,7 +9,7 @@ public class FamilyRequest {
 	private String surname;
 	private String name;
 	private String fathername;
-	private Date birthday;
+	private LocalDate birthday;
 	
 	
 }
