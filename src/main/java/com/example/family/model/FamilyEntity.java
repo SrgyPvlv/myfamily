@@ -23,13 +23,15 @@ public class FamilyEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="surname")
+	@Column(name="surname",nullable = false)
 	String surname;
 
-	@Column
+	@Column(nullable = false)
 	String name; //(name="name") можно не указывать, если название совпадает с названием поля
 
+	@Column(nullable = false)
 	String fathername; //Column и (name="fathername") можно не указывать, если название совпадает с названием поля
 
+	@Column(nullable = false)
 	LocalDate birthday;
 }

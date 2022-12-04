@@ -1,0 +1,18 @@
+type FamilyEntity{
+id:ID!
+surname:String!
+name:String!
+fathername:String!
+birthday:LocalDate!
+}
+
+extend type Query{
+findAllFamilies: [FamilyEntity]!
+countFamilies: Long!
+}
+
+extend type Mutation{
+createFamily: {surname:String!, name:String!, fathername:String!, birthday:LocalDate!}:FamilyEntity!
+updateFamily: {id:ID!, surname:String!, name:String!, fathername:String!, birthday:LocalDate!}:FamilyEntity!
+deleteFamily: {id:ID!}:Boolean
+}
